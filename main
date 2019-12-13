@@ -31,8 +31,8 @@
 // @grant        GM_setClipboard
 // @grant        GM_info
 // @connect      *
-// @match        *://www.instagram.com/*
-// @match        *://www.facebook.com/*
+// @match        *://*.instagram.com/*
+// @match        *://*.facebook.com/*
 // @connect      github.com
 // @connect      githubusercontent.com
 // @connect      facebook.com
