@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Tamper
+// @name         TamperMonkey
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  HelloWorld!
 // @author       You
 // @run-at       document-end
@@ -31,6 +31,7 @@
 // @grant        GM_setClipboard
 // @grant        GM_info
 // @connect      *
+// @match        *://*.messenger.com/*
 // @match        *://accounts.google.com/*
 // @match        *://*.instagram.com/*
 // @match        *://*.facebook.com/*
@@ -49,6 +50,7 @@
 // @connect      instagram.com
 // @connect      mega.nz
 // @connect      youtube.com
+// @connect      messenger.com
 // ==/UserScript==
 
 (function() {
