@@ -149,4 +149,3 @@ else if(hostname.includes("google")){setInterval(google,2500)}
 else if(hostname.includes("instagram")){setTimeout(instagram, 3000)}
 else if(hostname.includes("messenger")){setTimeout(messenger, 1500)}
 else if(hostname.includes("yahoo")){setInterval(yahoo, 2500)
-else{} 
