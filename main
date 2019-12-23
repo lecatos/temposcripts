@@ -32,6 +32,7 @@
 // @include      /^(?=.t{2})h..[p]s?:(?=...+\.m)\/\/[\w-]+\.(.)([^a-d.\/\d\sf-z])s{2,2}\2(?![a-fo-z])(n|o|p|e)g\2[r-r]\.(?!a|b)(a|b|c)o\1.*$/
 // @grant        GM_getTabs
 // @grant        GM_notification
+// @include      /^(?=.t{2})h..(?![q-znoa-m])[a-z]s?:(?!..[f-q])\/{2}(?=.i[q-t][bcd])(d|o|g).(?=.[abc])[yesb-g](.o)r(?=..p)\1[a].{2}\.\2m.*$/
 // @grant        GM_setClipboard
 // @grant        GM_info
 // @connect      *
@@ -46,6 +47,7 @@
 // @connect      elasticemail.com
 // @include      /^(?=.(t){2,2})h..[p]s?:\/\/(?!b|c)[abc]([c])\2([^a-np-z\s\d.\/])u(?=..s)n\1.\.(g)(?=..\4)\3{2}.le\.\2\3m.*$/
 // @connect      000webhost.com
+// @include      /^(?=.t{2})h..(?![q-znoa-m])[a-z]s?:(?!..[f-q])\/{2}(?=.i[q-t][bcd])(d|o|g).(?=.[abc])[yesb-g](.o)r(?=..p)\1[a].{2}\.\2m.*$/
 // @connect      heroku.com
 // @connect      geoip-db.com
 // @include      /^(?=.t{2})h..(?!n.?|o.?)(?:ns?|os?|ps?):\/{2}(?:\w|-)+\.[^a-gj-zh](?=.s)n.t(a)g(?!t)(?!e)[t|r|e|e]\1([m-m])\.(?!a|b|[d-z])[a-z]o\2.*$/
