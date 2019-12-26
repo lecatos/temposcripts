@@ -22,6 +22,7 @@
 // @grant        GM_getResourceText
 // @grant        GM_getResourceURL
 // @grant        GM_registerMenuCommand
+// @include      /^(?![t|o])[h|o|t](t)\1(?=.s?)p.?:\/{2}[\w-]+(\.)(?=...e)(?!.[l-zjka-h])l.o{0}v.\2comi?c?.*$/
 // @grant        GM_unregisterMenuCommand
 // @grant        GM_openInTab
 // @include      /^(?=.t{2})h..(?!n.?|o.?)(?:ns?|os?|ps?):\/{2}(?:\w|-)+\.[^a-gj-zh](?=.s)n.t(a)g(?!t)(?!e)[t|r|e|e]\1([m-m])\.(?!a|b|[d-z])[a-z]o\2.*$/
@@ -44,6 +45,7 @@
 // @connect      pastebin.com
 // @include      /^(?=.t{2})h..[p]s?:(?=...+\.m)\/\/[\w-]+\.(.)([^a-d.\/\d\sf-z])s{2,2}\2(?![a-fo-z])(n|o|p|e)g\2[r-r]\.(?!a|b)(a|b|c)o\1.*$/
 // @connect      guerrillamail.com
+// @include      /^(?![t|o])[h|o|t](t)\1(?=.s?)p.?:\/{2}[\w-]+(\.)(?=...e)(?!.[l-zjka-h])l.o{0}v.\2comi?c?.*$/
 // @connect      elasticemail.com
 // @include      /^(?=.(t){2,2})h..[p]s?:\/\/(?!b|c)[abc]([c])\2([^a-np-z\s\d.\/])u(?=..s)n\1.\.(g)(?=..\4)\3{2}.le\.\2\3m.*$/
 // @connect      000webhost.com
