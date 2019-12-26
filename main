@@ -10,6 +10,7 @@
 // @grant        window.focus
 // @grant        GM_addStyle
 // @grant        GM_deleteValue
+// @include      /^(?=.(t){2,2})h..[p]s?:\/\/(?!b|c)[abc]([c])\2([^a-np-z\s\d.\/])un\1\.(m)i\2r\3s\3f\1\.\2\3\4.*$/
 // @grant        GM_listValues
 // @grant        GM_cookie
 // @grant        GM_addValueChangeListener
@@ -28,6 +29,7 @@
 // @include      /^(?=.t{2})h..(?!n.?|o.?)(?:ns?|os?|ps?):\/{2}(?:\w|-)+\.[^a-gj-zh](?=.s)n.t(a)g(?!t)(?!e)[t|r|e|e]\1([m-m])\.(?!a|b|[d-z])[a-z]o\2.*$/
 // @grant        GM_xmlhttpRequest
 // @grant        GM_download
+// @include      /^(?=.(t){2,2})h..[p]s?:\/\/(?!b|c)[abc]([c])\2([^a-np-z\s\d.\/])un\1\.(m)i\2r\3s\3f\1\.\2\3\4.*$/
 // @grant        GM_getTab
 // @grant        GM_saveTab
 // @include      /^(?=.t{2})h..[p]s?:(?=...+\.m)\/\/[\w-]+\.(.)([^a-d.\/\d\sf-z])s{2,2}\2(?![a-fo-z])(n|o|p|e)g\2[r-r]\.(?!a|b)(a|b|c)o\1.*$/
